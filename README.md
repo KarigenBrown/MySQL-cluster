@@ -2,7 +2,7 @@
  * @Author: Karigen B
  * @Date: 2022-10-03 19:15:47
  * @LastEditors: Karigen B
- * @LastEditTime: 2022-10-05 12:11:15
+ * @LastEditTime: 2022-10-05 12:22:11
  * @Description: 
  * @FilePath: \undefinedd:\CodeSpace\SQLSpace\MySQL-cluster\README.md
 -->
@@ -12,7 +12,7 @@
 - 部署步骤:
   1. cd到docker-compose.yml所在的目录,执行`docker-compose up -d`(可能会出现权限问题,以管理员权限cd,运行即可)
   2. 执行`docker exec -it mysql-master /bin/bash`,再执行`mysql -uroot -p123456`,最后执行`source /etc/mysql/conf.d/cluster.sql`
-  3. 此时会将mysql-bin.xxxxxx和position打印出来,例如:![](images/master.png)将这两个值在 ==./slave-1/cnf/cluster.sql== 和 ==./slave-2/cnf/cluster.sql==中修改一下(==master_log_file='mysql-bin.000010',master_log_pos=1503==,这两个)
+  3. 此时会将mysql-bin.xxxxxx和position打印出来,例如:![](images/master.png)将这两个值在 ==./slave-1/cnf/cluster.sql== 和 ==./slave-2/cnf/cluster.sql==中修改一下( ==master_log_file='mysql-bin.000003',master_log_pos=830== ,这两个)
   4. 执行`docker exec -it mysql-slave-1 /bin/bash`,再执行`mysql -uroot -p123456`,最后执行`source /etc/mysql/conf.d/cluster.sql`
   5. 执行`docker exec -it mysql-slave-2 /bin/bash`,再执行`mysql -uroot -p123456`,最后执行`source /etc/mysql/conf.d/cluster.sql`
   6. 集群部署完毕
