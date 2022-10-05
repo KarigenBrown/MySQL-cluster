@@ -2,9 +2,9 @@
  * @Author: Karigen B
  * @Date: 2022-10-03 19:15:47
  * @LastEditors: Karigen B
- * @LastEditTime: 2022-10-05 12:00:17
+ * @LastEditTime: 2022-10-05 12:11:15
  * @Description: 
- * @FilePath: \MySQL-cluster\README.md
+ * @FilePath: \undefinedd:\CodeSpace\SQLSpace\MySQL-cluster\README.md
 -->
 
 # MySQL-cluster
@@ -24,3 +24,5 @@
   - 由于在Windows中所有的文件权限都是777,所以在执行命令的时候由于Windows权限太高,MySQL会忽略my.cnf文件,所以**不要在Windows环境中运行**
   - 由于作者懒得做镜像了,所以就依次执行吧
 
+本项目专门为北京邮电大学2020级软件工程数据库课设准备
+--by Karigen(学二507地位最高的男人)
