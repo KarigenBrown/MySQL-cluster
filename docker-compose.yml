@@ -11,7 +11,9 @@ services:
       - mysql-master-data:/var/lib/mysql
     env_file:
       - ./mysql-cluster.env
-    command: mysql -uroot -p123456 -Dinformation_schema < ./master/cnf/cluster.sql
+    environment:
+      - MYSQL_USER=reader
+      - MYSQL_PASSWORD=reader
   mysql-slave-1:
     image: mysql:8
     container_name: mysql-slave-1
