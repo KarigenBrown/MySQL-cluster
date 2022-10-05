@@ -4,19 +4,18 @@ services:
   mysql-master:
     image: mysql:8
     container_name: mysql-master
+    working_dir: /opt
     ports:
       - 3307:3306
     volumes:
       - ./master/cnf:/etc/mysql/conf.d
+      - ./master/sql:/opt
       - mysql-master-data:/var/lib/mysql
     env_file:
       - ./mysql-cluster.env
-    environment:
-      - MYSQL_USER=reader
-      - MYSQL_PASSWORD=reader
   nginx:
-    image: nginx
-    container_name: nginx:1.22
+    image: nginx:1.22
+    container_name: nginx
     ports:
       - 3308:3306
     volumes:
@@ -24,16 +23,20 @@ services:
   mysql-slave-1:
     image: mysql:8
     container_name: mysql-slave-1
+    working_dir: /opt
     volumes:
       - ./slave-1/cnf:/etc/mysql/conf.d
+      - ./slave/sql:/opt
       - mysql-slave-1-data:/var/lib/mysql
     env_file:
       - ./mysql-cluster.env
   mysql-slave-2:
     image: mysql:8
     container_name: mysql-slave-2
+    working_dir: /opt
     volumes:
       - ./slave-2/cnf:/etc/mysql/conf.d
+      - ./slave/sql:/opt
       - mysql-slave-2-data:/var/lib/mysql
     env_file:
       - ./mysql-cluster.env
