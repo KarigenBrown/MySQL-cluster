@@ -2,9 +2,9 @@
  * @Author: Karigen B
  * @Date: 2022-10-03 19:15:47
  * @LastEditors: Karigen B
- * @LastEditTime: 2022-10-07 08:19:18
+ * @LastEditTime: 2022-10-07 08:49:14
  * @Description: 
- * @FilePath: \undefinedd:\CodeSpace\SQLSpace\MySQL-cluster\README.md
+ * @FilePath: \MySQL-cluster\README.md
 -->
 
 # MySQL-cluster
@@ -28,6 +28,8 @@
 **注意**:
   - 集群中所有节点的root密码都是123456,可以自行从cluster.env中修改
   - 由于在Windows中所有的文件权限都是777,所以在执行命令的时候由于Windows文件权限太低,MySQL会忽略my.cnf文件,所以**不要在Windows环境中运行**
+  - 因为一般MySQL集群的负载均衡仅限于从服务器用于读,所以在本项目中就只做了从服务器的负载均衡
+  - 用于只用了从服务器做的做的读操作负载均衡,且是用docker-compose做的,所以一般也容器之间的性能页不会有太大的差别,所以Nginx负载均衡策略采用默认的轮询策略
   - **由于作者有项目洁癖**,每个MySQL节点才执行一条命令,所以作者是不回去打镜像的,所以就依次执行命令吧;云计算的Web客户端同理
 
 本项目专门为**北京邮电大学2020级软件工程数据库课设&&云计算第二次实验**准备
