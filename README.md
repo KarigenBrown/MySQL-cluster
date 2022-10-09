@@ -2,7 +2,7 @@
  * @Author: Karigen B
  * @Date: 2022-10-03 19:15:47
  * @LastEditors: Karigen B
- * @LastEditTime: 2022-10-08 19:08:17
+ * @LastEditTime: 2022-10-09 10:47:34
  * @Description: 
  * @FilePath: \undefinedd:\CodeSpace\SQLSpace\MySQL-cluster\README.md
 -->
@@ -13,7 +13,7 @@
   1. 由于可能存在网络问题,所以先看 [@java赵先生](https://blog.csdn.net/weixin_53974140/article/details/122959471) 的这篇博客
   2. cd到docker-compose.yml所在的目录,执行`docker-compose up -d`(可能会出现权限问题,以管理员权限cd,运行即可),等待容器初始化完毕
   3. 执行`docker exec -it mysql-master /bin/bash`,再执行`mysql -uroot -p123456 < cluster.sql`
-  4. 此时会将File和Position打印出来,例如:![](images/master.png)将这两个值在 ==./slave-1/cnf/cluster.sql== 和 ==./slave-2/cnf/cluster.sql==中修改一下( ==master_log_file='mysql-bin.000003',master_log_pos=829== ,这两个),因为是在容器中运行的缘故,所以如果完全参照作者的步骤执行命令,MySQL的日志系统到目前为止的参数和作者预留的参数一致
+  4. 此时会将File和Position打印出来,例如:![](images/master.png)将这两个值在 ==./slave/sql/cluster.sql== ( ==master_log_file='mysql-bin.000003',master_log_pos=829== ,这两个)中修改一下,因为是在容器中运行的缘故,所以如果完全参照作者的步骤执行命令,MySQL的日志系统到目前为止的参数和作者预留的参数一致
   5. 执行`docker exec -it mysql-slave-1 /bin/bash`,再执行`mysql -uroot -p123456 < cluster.sql`
   6. 执行`docker exec -it mysql-slave-2 /bin/bash`,再执行`mysql -uroot -p123456 < cluster.sql`
   7. 集群部署完毕
